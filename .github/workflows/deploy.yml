@@ -23,7 +23,6 @@ jobs:
           server: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.SSH_PASSPHRASE }}
-          protocol: sftp
           port: 22
 
       # Step 3: Execute remote SSH commands
