@@ -23,7 +23,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
-          PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
           TARGET: ${{ secrets.TARGET_DIR }}
 
       # Step 3: Execute remote SSH commands
@@ -33,7 +32,6 @@ jobs:
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
             # Navigate to the Laravel project directory
             cd /home/dioomyid/cinelounge.dioo.my.id
