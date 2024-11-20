@@ -50,12 +50,6 @@ jobs:
             # Install dependencies
             composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
             
-            # Clear all caches first
-            php artisan cache:clear
-            php artisan config:clear
-            php artisan route:clear
-            php artisan view:clear
-            
             # Generate key if needed
             php artisan key:generate
             

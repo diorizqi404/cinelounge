@@ -23,7 +23,7 @@ class FormController extends Controller
                 ->orWhere('email', 'like', '%' . $search . '%');
         }
 
-        $forms = $query->paginate(10);
+        $forms = $query->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.dashboard-form', compact('forms'));
     }
 

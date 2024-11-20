@@ -14,13 +14,13 @@
                         <label for="username" class="block mb-2 text-sm font-medium text-gray-900">Username</label>
                         <input type="text" name="username" id="username"
                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            placeholder="Hari Subagio" required />
+                            placeholder="John Doe" required />
                     </div>
                     <div class="mb-5">
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
                         <input type="email" name="email" id="email"
                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            placeholder="hari.bikers@smkn2sby.sch.id" required />
+                            placeholder="admin@smkn2sby.sch.id" required />
                     </div>
                     <div class="mb-5">
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
