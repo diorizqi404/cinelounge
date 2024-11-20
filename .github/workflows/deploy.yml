@@ -36,14 +36,6 @@ jobs:
           script: |
             # Navigate to the Laravel project directory
             cd /home/dioomyid/cinelounge.dioo.my.id
-
-            # Set proper permissions for cPanel
-            find . -type f -exec chmod 644 {} \;
-            find . -type d -exec chmod 755 {} \;
-            chmod -R 775 storage bootstrap/cache
-            
-            # Set ownership to your cPanel user
-            chown -R dioomyid:dioomyid .
             
             # Copy .env.example to .env
             cp .env.example .env
