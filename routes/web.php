@@ -17,7 +17,7 @@ Route::post('/login', [UserController::class, 'storeLogin'])->name('login.store'
 Route::post('/register', [UserController::class, 'storeRegister'])->name('storeRegister');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['admin'])->group(function () {
 
     // HALAMAN UTAMA
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
