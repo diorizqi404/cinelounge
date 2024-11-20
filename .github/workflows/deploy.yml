@@ -44,6 +44,9 @@ jobs:
             # Update .env with environment variables
             sudo bash -c 'echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> .env'
             sudo bash -c 'echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env'
+            sudo bash -c 'echo "MAIL_USERNAME=${{ secrets.MAIL_USERNAME }}" >> .env'
+            sudo bash -c 'echo "MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}" >> .env'
+            sudo bash -c 'echo "MAIL_FROM_ADDRESSE=${{ secrets.MAIL_USERNAME }}" >> .env'
             
             # Install dependencies
             sudo composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
