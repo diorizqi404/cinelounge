@@ -31,7 +31,7 @@
             <img src="{{ asset('image/background_home.webp') }}" alt="">
 
             <div class="ket">
-                <h1>RIBUAN FILM PALING POPULER</h1>
+                <h1>RIBUAN FILM PALING POPULER!</h1>
                 <p class="deskripsi">CineLounge menawarkan ribuan film populer, dari klasik hingga rilis terbaru.
                     Dengan piihan genre yang beragam dan pembaruan rutin, selalu ada sesuatu yang menarik untuk
                     ditonton kapan saja.

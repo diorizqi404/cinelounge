@@ -57,7 +57,7 @@ jobs:
             php artisan view:clear
             
             # Generate key if needed
-            php artisan key:generate --force
+            php artisan key:generate
             
             # Optimize and cache
             php artisan optimize
