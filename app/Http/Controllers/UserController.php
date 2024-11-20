@@ -22,7 +22,7 @@ class UserController extends Controller
             });
         }
 
-        $films = $query->paginate(10);
+        $films = $query->paginate(21);
 
         return view('welcome', compact('films'));
     }
