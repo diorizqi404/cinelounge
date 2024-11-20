@@ -1,0 +1,56 @@
+name: Push-to-EC2
+
+# Trigger deployment only on push to main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to EC2 on main branch push
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code from GitHub
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Deploy to EC2 server
+      - name: Deploy to Server EC2 AWS
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
+          TARGET: ${{ secrets.TARGET_DIR }}
+
+      # Step 3: Execute remote SSH commands
+      - name: Execute remote SSH commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          script: |
+            # Navigate to the Laravel project directory
+            cd /home/dioomyid/cinelounge.dioo.my.id
+            
+            # Copy .env.example to .env
+            sudo cp .env.example .env
+            
+            # Update .env with environment variables
+            sudo bash -c 'echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> .env'
+            sudo bash -c 'echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env'
+            
+            # Install dependencies
+            sudo composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+            
+            # Generate application key and optimize caches
+            sudo php artisan key:generate
+            sudo php artisan config:cache
+            sudo php artisan route:cache
+            sudo php artisan view:cache
+            sudo php artisan optimize

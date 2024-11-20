@@ -1,0 +1,12 @@
+h1 {
+    font-size: 50px;
+    text-align: center;
+}
+
+li {
+    font-weight: bold;
+}
+
+p, li {
+    font-size: 35px;
+}
