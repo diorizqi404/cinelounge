@@ -38,21 +38,21 @@ jobs:
             cd /home/dioomyid/cinelounge.dioo.my.id
             
             # Copy .env.example to .env
-            sudo cp .env.example .env
+            cp .env.example .env
             
             # Update .env with environment variables
-            sudo bash -c 'echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> .env'
-            sudo bash -c 'echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env'
-            sudo bash -c 'echo "MAIL_USERNAME=${{ secrets.MAIL_USERNAME }}" >> .env'
-            sudo bash -c 'echo "MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}" >> .env'
-            sudo bash -c 'echo "MAIL_FROM_ADDRESSE=${{ secrets.MAIL_USERNAME }}" >> .env'
+            echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> .env
+            echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
+            echo "MAIL_USERNAME=${{ secrets.MAIL_USERNAME }}" >> .env
+            echo "MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}" >> .env
+            echo "MAIL_FROM_ADDRESSE=${{ secrets.MAIL_USERNAME }}" >> .env
             
             # Install dependencies
-            sudo composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+            composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
             
             # Generate application key and optimize caches
-            sudo php artisan key:generate
-            sudo php artisan config:cache
-            sudo php artisan route:cache
-            sudo php artisan view:cache
-            sudo php artisan optimize
+            php artisan key:generate
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            php artisan optimize
