@@ -25,7 +25,7 @@ class FavouriteController extends Controller
             });
         }
 
-        $favourites = $query->paginate(10);
+        $favourites = $query->orderBy('created_at', 'desc')->paginate(10);
 
         return view('user.favourites', compact('favourites'));
     }

@@ -20,7 +20,7 @@ class FilmController extends Controller
                   ->orWhere('genre', 'like', '%' . $search . '%');
         }
     
-        $films = $query->paginate(5);
+        $films = $query->orderBy('created_at', 'desc')->paginate(5);
 
         return view('admin.dashboard-film', compact('films'));
     }

@@ -35,6 +35,34 @@
                 <canvas id="favouritesLast7DaysChart"></canvas>
             </div>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 mb-4">
+            <div class="bg-white rounded-lg shadow p-4">
+                <h2 class="text-2xl font-bold mb-4">Daftar User</h2>
+                <div class="overflow-x-auto mt-4">
+                    <table class="min-w-full bg-white">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b border-gray-200 text-center">No</th>
+                                <th class="py-2 px-4 border-b border-gray-200 text-center">Username</th>
+                                <th class="py-2 px-4 border-b border-gray-200 text-center">Email</th>
+                                <th class="py-2 px-4 border-b border-gray-200 text-center">Tanggal Pendaftaran</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($users as $index => $user)
+                                <tr>
+                                    <td class="py-2 px-4 border-b border-gray-200 text-center">{{ $index + 1 }}</td>
+                                    <td class="py-2 px-4 border-b border-gray-200 text-center">{{ $user->username }}</td>
+                                    <td class="py-2 px-4 border-b border-gray-200 text-center">{{ $user->email }}</td>
+                                    <td class="py-2 px-4 border-b border-gray-200 text-center">{{ $user->created_at->format('Y-m-d') }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 

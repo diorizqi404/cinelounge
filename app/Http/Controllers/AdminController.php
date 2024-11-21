@@ -32,18 +32,21 @@ class AdminController extends Controller
             ->orderBy('date', 'asc')
             ->get();
 
+        $users = User::where('role', 'user')->orderBy('created_at', 'desc')->get();
+
         return view('admin.dashboard')
             ->with('totalFilms', $totalFilms)
             ->with('totalUsers', $totalUsers)
             ->with('totalFavourites', $totalFavourites)
             ->with('totalForms', $totalForms)
             ->with('topFilms', $topFilms)
-            ->with('favouritesLast7Days', $favouritesLast7Days);
+            ->with('favouritesLast7Days', $favouritesLast7Days)
+            ->with('users', $users);
     }
 
     public function index()
     {
-        $admins = User::where('role', 'admin')->paginate(10);
+        $admins = User::where('role', 'admin')->orderBy('created_at', 'desc')->paginate(10);
 
         return view('admin.dashboard-admin', compact('admins'));
     }
